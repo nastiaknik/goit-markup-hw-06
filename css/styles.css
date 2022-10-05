@@ -31,8 +31,10 @@
     0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   --modal-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
-  /* transition */
+  --distribution-btn-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  /* other */
   --animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --form-border: 1px solid rgba(33, 33, 33, 0.2);
 }
 
 body {
@@ -591,13 +593,14 @@ img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
-  width: 528px;
-  height: 581px;
+  min-width: 528px;
+  min-height: 581px;
   padding: 15px;
   background-color: var(--white-color);
   box-shadow: var(--modal-shadow);
   border-radius: 4px;
   transition: transform var(--animation);
+  padding: 40px;
 }
 .modal-btn {
   position: absolute;
@@ -614,6 +617,14 @@ img {
   cursor: pointer;
   background-color: var(--white-color);
 }
+.modal-btn:hover .close-icon,
+.modal-btn:focus .close-icon {
+  fill: var(--accent-color);
+}
+.close-icon {
+  transition: fill var(--animation);
+}
+
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
@@ -624,7 +635,6 @@ img {
 }
 
 /* projects card-set */
-
 .card-set {
   display: flex;
   flex-wrap: wrap;
@@ -702,3 +712,222 @@ flex-basis: calc((100% - 30px) / 3);} */
 .project-link:focus .overlay {
   transform: translateY(0);
 }
+
+/* distribution-form */
+.distribution-form {
+  margin-left: 93px;
+}
+.distribution-form-field {
+  position: relative;
+  display: block;
+  margin-right: 12px;
+}
+.distribution-form-title {
+  display: block;
+}
+.distribution-form-input,
+.distribution-form-label {
+  font-size: 16px;
+  line-height: calc(20 / 16);
+  letter-spacing: 0.03em;
+}
+.distribution-form-input {
+  color: var(--white-color);
+  background-color: transparent;
+  width: 358px;
+  height: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  padding: 15px 16px;
+  outline: transparent;
+  transition: border var(--animation);
+  /*   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));*/
+}
+.distribution-form-input:focus,
+.distribution-form-input:not(:placeholder-shown) {
+  border: 1px solid var(--white-color);
+}
+.distribution-btn {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--distribution-btn-shadow);
+}
+.distribution-icon {
+  margin-left: 10px;
+}
+.distribution-form-label {
+  color: var(--grey-txt-color-60);
+  position: absolute;
+  top: 15px;
+  left: 16px;
+  transform: translateX(0);
+  display: block;
+  transition: transform var(--animation);
+  transform-origin: center;
+}
+.distribution-form-input:focus + .distribution-form-label,
+.distribution-form-input:not(:placeholder-shown) + .distribution-form-label {
+  transform: translateX(-150%);
+  color: var(--white-color);
+}
+.distribution-form-input::placeholder {
+  opacity: 0;
+  transition: opacity var(--animation);
+}
+.distribution-form-input:focus::placeholder {
+  opacity: 1;
+}
+.distr-group {
+  display: flex;
+}
+/**
+  |============================
+  | Register form
+  |============================
+*/
+.register-form-title {
+  display: block;
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 20px;
+  line-height: calc(23 / 20);
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+.register-form-group {
+  margin-bottom: 10px;
+}
+.register-form-field {
+  display: block;
+  position: relative;
+  margin-bottom: 10px;
+}
+.register-form-label {
+  display: block;
+  font-size: 12px;
+  color: var(--secondary-color-font);
+  letter-spacing: 0.01em;
+  line-height: calc(14 / 12);
+  margin-bottom: 4px;
+}
+.register-form-input {
+  width: 100%;
+  height: 40px;
+  padding: 12px 42px;
+  outline: transparent;
+  border: var(--form-border);
+  border-radius: 4px;
+  transition: border-color var(--animation);
+}
+.register-form-input:focus,
+.register-form-message:focus {
+  border-color: var(--accent-color);
+}
+.register-form-input:focus + .register-form-label,
+.register-form-message:focus + .register-form-label {
+  color: var(--accent-color);
+}
+.register-form-icon {
+  position: absolute;
+  top: calc(50% + 10px);
+  left: 12px;
+  transform: translateY(-50%);
+  transition: fill var(--animation);
+}
+.register-form-input:focus + .register-form-icon,
+.register-form-input:not(:placeholder-shown) + .register-form-icon {
+  fill: var(--accent-color);
+}
+.register-form-heading {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12px;
+  line-height: calc(14 / 12);
+  letter-spacing: 0.01em;
+  color: var(--secondary-color-font);
+}
+.register-form-message-field {
+  margin-bottom: 20px;
+}
+.register-form-message {
+  display: block;
+  width: 100%;
+  height: 130px;
+  padding: 18px;
+  font-size: 14px;
+  resize: none;
+  outline: transparent;
+  border: var(--form-border);
+  border-radius: 10px;
+}
+.register-form-message::placeholder {
+  font-size: 14px;
+}
+.register-form-agreement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+.icon-checked {
+  opacity: 0;
+  transition: opacity var(--animation);
+}
+.register-form-checkbox:checked + .register-form-icons .icon-unchecked {
+  opacity: 0;
+}
+.register-form-checkbox:checked + .register-form-icons .icon-checked {
+  opacity: 1;
+}
+.icon-unchecked {
+  transition: opacity var(--animation);
+}
+
+/* Перевірка стану чекбокса перед встановленням стану фокусу сусідньому елементу */
+.register-form-checkbox:focus-visible:not(:checked) + .register-form-icons,
+.register-form-checkbox:focus-visible:checked + .register-form-icons,
+.register-form-checkbox:disabled + .register-form-icons {
+  outline: transparent;
+}
+
+.register-form-agreement:focus-within .register-form-icons {
+  outline: 2px auto -webkit-focus-ring-color;
+  outline: 2px solid rgb(52, 119, 163);
+  outline-offset: 1px;
+  border-radius: 2px;
+}
+.register-form-icons {
+  transition: outline var(--animation);
+}
+.register-form-descr,
+.register-form-link {
+  font-size: 14px;
+  line-height: calc(24 / 14);
+  letter-spacing: 0.03em;
+}
+.register-form-descr {
+  user-select: none;
+  color: var(--secondary-color-font);
+}
+.register-form-link {
+  color: var(--accent-color);
+}
+.register-form-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 52px;
+}
+/* modal-form ends */

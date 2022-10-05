@@ -199,7 +199,7 @@ img {
       var(--background-overlay),
       var(--background-overlay)
     ),
-    url(../images/index/background-img.jpg);
+    url(./images/index/background-img.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

@@ -395,35 +395,37 @@
             </li>
           </ul>
         </div>
-        <form
-          class="distribution-form"
-          name="distribution-form"
-          autocomplete="off"
-          method="post"
-          action="javascript:void(0);"
-        >
+        <div class="distribution-form-container">
           <strong class="distribution-form-title text-join">
             Підпишіться на розсилку</strong
           >
-          <div class="distr-group">
-            <label class="distribution-form-field">
-              <input
-                class="distribution-form-input"
-                type="email"
-                name="email"
-                placeholder="example@email.com"
-                required
-              />
-              <span class="distribution-form-label">Email</span></label
-            >
-            <button class="btn-service distribution-btn" type="submit">
-              Підписатися
-              <svg class="distribution-icon" width="24" height="24">
-                <use href="./images/icons.svg#paper-airplane"></use>
-              </svg>
-            </button>
-          </div>
-        </form>
+          <form
+            class="distribution-form"
+            name="distribution-form"
+            autocomplete="off"
+            method="post"
+            action="javascript:void(0);"
+          >
+            <div class="distribution-group">
+              <label class="distribution-form-field">
+                <input
+                  class="distribution-form-input"
+                  type="email"
+                  name="email"
+                  placeholder="example@email.com"
+                  required
+                />
+                <span class="distribution-form-label">Email</span></label
+              >
+              <button class="btn-service distribution-btn" type="submit">
+                Підписатися
+                <svg class="distribution-icon" width="24" height="24">
+                  <use href="./images/icons.svg#paper-airplane"></use>
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </footer>
   </body>
